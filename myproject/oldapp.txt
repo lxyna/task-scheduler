@@ -1,0 +1,34 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+cache = {}
+global i
+i = 0
+
+@app.route('/init', methods=['POST']) 
+def init():
+    data = request.json
+    cache[i] = data
+    return str(cache[i])
+
+@app.route('/new', methods=['POST']) 
+def new():
+    i = i + 1
+    data = request.json
+    cache[i] = data
+    return str(cache[i])
+
+@app.route('/up', methods=['POST']) 
+def up():
+    i = i + 1
+    data = request.json
+    cache[i] = data
+    return str(cache[i])
+
+@app.route('/down', methods=['POST']) 
+def down():
+    i = i - 1
+    data = request.json
+    cache[i] = data
+    return str(cache[i])
