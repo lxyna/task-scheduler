@@ -17,6 +17,8 @@ Technologies:
     * [Mantine](https://mantine.dev/) - Library with pre-made UI components
 * Backend
     * [Flask](https://flask.palletsprojects.com/) - Can be used to make a basic API easily
+    * [SQLAlchemy](https://www.sqlalchemy.org/) - Gives application developers the full power and flexibility of SQL.
+    * [SQLite](https://www.sqlite.org/index.html) - C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
 
 The project JASL is proposing is to create a task scheduler that allows the reader to tell when they should complete a task. The scheduler will remember the user's tasks that the user sets and order them by priority. Users should be able to create tasks in this program with corresponding subtasks. If the user felt the task was completed they can check off that they completed it on their task list. The input for the project would be people uploading tasks with a title, description, and priority, and the output would be tasks added to the scheduler.
 
