@@ -6,6 +6,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-if __name__ == "__main__":
+if __name__ == "__main__": #creates database by running python app.py
     db.create_all()
     app.run(debug=True)
