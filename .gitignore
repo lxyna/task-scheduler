@@ -1,7 +1,7 @@
 # backend
-taskApp/__pycache__/
-taskApp/db.sqlite
-taskApp/venv
+backend/__pycache__/
+backend/db.sqlite
+backend/venv
 
 # frontend
 node_modules/
