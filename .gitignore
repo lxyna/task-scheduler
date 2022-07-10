@@ -1,5 +1,7 @@
 # backend
-__pycache__/
+backend/__pycache__/
+backend/db.sqlite
+backend/venv
 
 # frontend
 node_modules/
