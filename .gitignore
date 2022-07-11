@@ -5,3 +5,5 @@ taskApp/venv
 
 # frontend
 node_modules/
+.next
+.swc
