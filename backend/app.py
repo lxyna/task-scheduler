@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -19,9 +19,21 @@ class Task(db.Model):
     description = db.Column(db.String(300))
     # classification = db.Column()
 
+
+
+
+@app.route('/new', methods=['POST'])
+def new():
+    task1=Task( title="task1",  priority = 1, description = "description1" )
+          #new_task = Task()
+     db.session.add(task1)
+     db.session.commit()
+     
+
+
+
 if __name__ == "__main__": #creates database by running python app.py
     db.create_all()
-    # new_task = Task()
-    # db.session.add(new_task)
-    # db.session.commit()
+    
     app.run(debug=True)
+
