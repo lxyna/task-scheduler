@@ -6,18 +6,29 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-@app.route('/fetch')
-def index():
-    task_list = Task.query.all()
-    print(task_list)
-    return str(task_list)
-
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     priority = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(300))
     # classification = db.Column()
+
+@app.route('/fetch')
+def index():
+    task_list = Task.query.all()
+    print(task_list)
+    return str(task_list)
+
+@app.route('/delete', methods=['DELETE'])
+def delete():
+    task = Task.query.get(request.json['id'])
+    
+    if task == None:
+        return 'Task not found'
+    
+    db.session.delete(task)
+    db.session.commit()
+    return 'Task deleted'
 
 @app.route('/new', methods=['POST'])
 def new():
