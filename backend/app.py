@@ -6,7 +6,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-@app.route('/')
+@app.route('/fetch')
 def index():
     task_list = Task.query.all()
     print(task_list)
@@ -19,9 +19,6 @@ class Task(db.Model):
     description = db.Column(db.String(300))
     # classification = db.Column()
 
-
-
-
 @app.route('/new', methods=['POST'])
 def new():
     content_type = request.headers.get('Content-Type')
@@ -33,8 +30,6 @@ def new():
         return str(new_task)
     else:
         return 'Content-Type not supported!'
-
-
 
 if __name__ == "__main__": #creates database by running python app.py
     db.create_all()
