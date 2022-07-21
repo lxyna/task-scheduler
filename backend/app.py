@@ -26,12 +26,28 @@ class TaskSchema(ma.Schema):
         fields = ('id', 'title', 'priority', 'description')
 
 task_schema = TaskSchema()
-tasks_schema = TaskSchema(many=True)
+tasks_schema = TaskSchema(many=True)        
+        
+@app.route('/fetch', methods=['GET'])
+def index():
+        task_list = Task.query.all()
+        return tasks_schema.jsonify(task_list)
 
 @app.route('/fetch', methods=['GET'])
 def index():
         task_list = Task.query.all()
         return tasks_schema.jsonify(task_list)
+    
+@app.route('/delete', methods=['DELETE'])
+def delete():
+    task = Task.query.get(request.json['id'])
+    
+    if task == None:
+        return 'Task not found'
+    
+    db.session.delete(task)
+    db.session.commit()
+    return 'Task deleted'
 
 @app.route('/new', methods=['POST'])
 def new():
