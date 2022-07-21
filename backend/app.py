@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
 
-app = Flask(name)
+app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -43,7 +43,7 @@ def new():
         db.session.commit()
         return task_schema.jsonify(new_task)
 
-if name == "main": #creates database by running python app.py
+if __name__ == "__main__": #creates database by running python app.py
     db.create_all()
     app.run(debug=True)
 
