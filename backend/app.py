@@ -32,11 +32,6 @@ tasks_schema = TaskSchema(many=True)
 def index():
         task_list = Task.query.all()
         return tasks_schema.jsonify(task_list)
-
-@app.route('/fetch', methods=['GET'])
-def index():
-        task_list = Task.query.all()
-        return tasks_schema.jsonify(task_list)
     
 @app.route('/delete', methods=['DELETE'])
 def delete():
