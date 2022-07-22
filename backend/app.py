@@ -1,13 +1,14 @@
 from flask import Flask, render_template, json, jsonify, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
+CORS(app)
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -26,20 +27,20 @@ class TaskSchema(ma.Schema):
         fields = ('id', 'title', 'priority', 'description')
 
 task_schema = TaskSchema()
-tasks_schema = TaskSchema(many=True)        
-        
+tasks_schema = TaskSchema(many=True)
+
 @app.route('/fetch', methods=['GET'])
 def index():
         task_list = Task.query.all()
         return tasks_schema.jsonify(task_list)
-    
+
 @app.route('/delete', methods=['DELETE'])
 def delete():
     task = Task.query.get(request.json['id'])
-    
+
     if task == None:
         return 'Task not found'
-    
+
     db.session.delete(task)
     db.session.commit()
     return 'Task deleted'
@@ -75,4 +76,3 @@ def new():
 if __name__ == "__main__": #creates database by running python app.py
     db.create_all()
     app.run(debug=True)
-
