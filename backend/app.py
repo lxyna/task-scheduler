@@ -44,6 +44,24 @@ def delete():
     db.session.commit()
     return 'Task deleted'
 
+@app.route('/edit', methods=['PUT'])
+def edit():
+    task = Task.query.get(request.json['id'])
+
+    if task == None:
+        return 'Task not found'
+
+    title = request.json['title']
+    priority = request.json['priority']
+    description = request.json['description']
+
+    task.title = title
+    task.priority = priority
+    task.description = description
+
+    db.session.commit()
+    return task_schema.jsonify(task)
+
 @app.route('/new', methods=['POST'])
 def new():
         title = request.json['title']
