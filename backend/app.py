@@ -96,3 +96,4 @@ def complete():
 if __name__ == "__main__": #creates database by running python app.py
     db.create_all()
     app.run(debug=True)
+
