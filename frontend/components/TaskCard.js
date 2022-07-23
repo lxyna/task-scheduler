@@ -1,4 +1,4 @@
-import { Box, Checkbox, Group, Space, Title, useMantineTheme } from '@mantine/core';
+import { Badge, Box, Group, Title, useMantineTheme } from '@mantine/core';
 
 export default function TaskCard({ task }) {
     const theme = useMantineTheme();
@@ -11,28 +11,11 @@ export default function TaskCard({ task }) {
             width: '80%',
             borderRadius: '.5em',
         }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Title order={4}>{task.title}</Title>
-                <Box>{task.description}</Box>
-            </Box>
-            {task.subtasks.length > 0 &&
-            <>
-                <Space h='md'/>
-                <Group
-                    spacing='sm'
-                    size='sm'
-                    direction='column'
-                >
-                    {task.subtasks.map((x, i) =>
-                        <Checkbox
-                            key={i}
-                            defaultChecked={x.completed}
-                            label={x.description}
-                        />
-                    )}
-                </Group>
-            </>
-            }
+            <Group>
+                <Title order={3}>{task.title}</Title>
+                <Badge>{['Work', 'Study', 'School'][task.classification]}</Badge>
+            </Group>
+            <Box>{task.description}</Box>
         </Box>
     );
 }
