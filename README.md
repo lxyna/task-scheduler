@@ -50,8 +50,17 @@ The project JASL is proposing is to create a task scheduler that allows the read
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history.
 
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ![Input](./Input.png)
+ ![Outpu](./Output.png)
+ 
  ## Installation/Usage
- > Instructions on installing and running your application
+ * Backend:
+   * When running the program, you must run it in a virtual environemnt.
+   * Once in the virtual environment, you can install all the dependencies by using: $ pip install -r requirements.txt
+   * Using the command $ python app.py will run the program and show a link for the local server.
+ * Frontend:
+   * Install dependencies by running yarn
+   * Run yarn build && yarn start to build & run the production build
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ * The program was tested using PostMan for the most part. Postman allows us to test each function by passing in JSON data and showing us the output of the function.
+ * W did also create a unittest and have a code coverage report.
