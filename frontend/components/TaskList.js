@@ -26,7 +26,7 @@ export default function TaskList() {
             {Array.from(taskList)
                 .sort((a, b) => b.priority - a.priority)
                 .map(task =>
-                    !task.completed && <TaskCard key={task.id} task={task}/>
+                    !task.complete && <TaskCard key={task.id} task={task}/>
                 )}
         </Group>
     );

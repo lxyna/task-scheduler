@@ -89,6 +89,7 @@ export default function AddTask() {
                 sx={{ borderRadius: '25%' }}
                 size='xl'
                 onClick={() => setOpened(true)}
+                color='green'
             >
                 <Pencil/>
             </ActionIcon>
