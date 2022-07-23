@@ -13,7 +13,7 @@ export default function TaskList() {
     const [taskList, setTaskList] = useRecoilState(taskListState);
 
     useEffect(() => {
-        fetch('http://localhost:3001/tasks', {
+        fetch('http://localhost:5000/fetch', {
             method: 'GET'
         })
             .then(res => res.json())
@@ -26,7 +26,7 @@ export default function TaskList() {
             {Array.from(taskList)
                 .sort((a, b) => b.priority - a.priority)
                 .map(task =>
-                    <TaskCard key={task.id} task={task}/>
+                    !task.completed && <TaskCard key={task.id} task={task}/>
                 )}
         </Group>
     );

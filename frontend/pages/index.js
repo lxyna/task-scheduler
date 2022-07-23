@@ -1,5 +1,6 @@
-import { AppShell, useMantineTheme } from '@mantine/core';
+import { AppShell, Box, useMantineTheme } from '@mantine/core';
 import TaskList from '../components/TaskList';
+import AddTask from '../components/AddTask';
 
 export default function Home() {
     const theme = useMantineTheme();
@@ -18,6 +19,9 @@ export default function Home() {
             }}
         >
             <TaskList/>
+            <Box sx={{ position: 'absolute', top: '2rem', right: '2rem' }}>
+                <AddTask/>
+            </Box>
         </AppShell>
     );
 }
