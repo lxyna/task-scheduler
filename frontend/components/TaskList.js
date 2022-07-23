@@ -13,7 +13,7 @@ export default function TaskList() {
     const [taskList, setTaskList] = useRecoilState(taskListState);
 
     useEffect(() => {
-        fetch('http://localhost:3001/tasks', {
+        fetch('http://localhost:5000/fetch', {
             method: 'GET'
         })
             .then(res => res.json())
