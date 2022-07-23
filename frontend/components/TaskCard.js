@@ -11,9 +11,9 @@ export default function TaskCard({ task }) {
             width: '80%',
             borderRadius: '.5em',
         }}>
-            <Group>
+            <Group direction='row' align='center'>
                 <Title order={3}>{task.title}</Title>
-                <Badge>{['Work', 'Study', 'School'][task.classification]}</Badge>
+                <Badge>{['Work', 'Study', 'Personal'][task.classification]}</Badge>
             </Group>
             <Box>{task.description}</Box>
         </Box>
