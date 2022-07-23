@@ -26,20 +26,7 @@ The project JASL is proposing is to create a task scheduler that allows the read
 ![Class Diagram](./classdiagram.svg)
 
  > ## Phase II
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- > * Before the meeting you should perform a sprint plan like you did in Phase I.
- > * You should also update this README file by adding the following:
- >   * What design pattern(s) did you use? For each pattern you must explain in 4-5 sentences:
- >     * Why did you pick this pattern? And what feature did you implement with it?
- >     * How did the design pattern help you write better code?
- >   * An updated class diagram that reflects the design pattern(s) you used. You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description).
- >   * Make sure your README file (and Project board) are up-to-date reflecting the current status of your project. Previous versions of the README file should still be visible through your commit history.
->
-> During the meeting with your reader you will discuss:
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+* Met with TA. 
 
 
  > ## Final deliverable
